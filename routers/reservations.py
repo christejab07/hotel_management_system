@@ -62,9 +62,7 @@ async def list_reservations():
         {
             "id": reservation["id"],
             "room": reservation["room"],
-            "customer": {
-                "id": reservation["id"]
-            },
+            "customer": reservation["customer"],
             "check_in": reservation["check_in"],
             "check_out": reservation["check_out"],
             "status": reservation["status"],

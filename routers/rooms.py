@@ -13,6 +13,11 @@ async def create_room(room: RoomCreate):
 
 @router.get("/rooms/", response_model=list[RoomOut])
 async def list_available_rooms():
+    query = rooms.select()
+    return await database.fetch_all(query)
+
+@router.get("/available-rooms/", response_model=list[RoomOut])
+async def list_available_rooms():
     query = rooms.select().where(rooms.c.is_available == True)
     return await database.fetch_all(query)
 

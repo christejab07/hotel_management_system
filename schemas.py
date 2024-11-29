@@ -50,14 +50,12 @@ class CustomerOut(CustomerBase):
         from_attributes = True
 
 
-class CustomerSchema(BaseModel):
-    id: int
 
 
 # Reservation schemas
 class ReservationBase(BaseModel):
     room: int  # Room ID
-    customer: CustomerSchema
+    customer: int # Customer ID
     check_in: date  # Check-in date (Date only)
     check_out: date  # Check-out date (Date only)
     status: Optional[str] = "pending"
